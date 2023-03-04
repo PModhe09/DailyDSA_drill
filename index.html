@@ -19,7 +19,7 @@
         <form action="" id="form">
             <div class="form-group">
                    <label for="no">Problem No</label>
-                   <input type="text" id="no" class="form-control">
+                   <input type="number" id="no" class="form-control">
             </div>
             <div class="form-group">
                 <label for="platform">Platform Name</label>
@@ -33,20 +33,26 @@
                 <label for="link">Problem Link</label>
                 <input type="text" id="link" class="form-control">
             </div>
+            <div class="form-group">
+                <label for="prio">Priority</label>
+                <input type="number" id="prio" class="form-control">
+            </div>
             <br>
             <input type="submit" value="Add Problem" class="btn btn-primary btn-block">
         </form>
 
-        <table>
+        <table class="table table-striped mt-5">
             <thead>
                 <tr>
                     <th>Problem No</th>
                     <th>Platform Name</th>
                     <th>Problem Name</th>
-                    <th>Problem Link</th>
+                    <th>Priority <span><i class="fa-solid fa-chevron-up"></i></span>
+                    <span><i class="fa-solid fa-chevron-down"></i></span></th>
+
                 </tr>
             </thead>
-            <tbody id="list">
+            <tbody id="problem-list">
            
             </tbody>
         </table>
