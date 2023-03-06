@@ -36,6 +36,12 @@ class ui{
         
         list.appendChild(row);
     }
+
+    static delete(ele){
+        if(ele.classList.contains('delete')){
+            ele.parentElement.parentElement.remove();
+        }
+    }
      
 }
 // Store class : handles local Storage
@@ -56,7 +62,7 @@ document.querySelector('#form').addEventListener('submit',(e)=>{
     const platform=document.querySelector('#platform').value;
     const link=document.querySelector('#link').value;
     const prio=document.querySelector('#prio').value;
-    const problem_n=parseInt(document.querySelector('#problem').value,10);
+    const problem_n=document.querySelector('#problem').value;
   
     //Validate
     // if(no==-'' || platform==='' || link==='' || problem===''){
@@ -73,3 +79,6 @@ document.querySelector('#form').addEventListener('submit',(e)=>{
 
 })
 // Event 3 : Remove Problem from list of Problems
+document.querySelector('#problem-list').addEventListener('click',(e)=>{
+      ui.delete(e.target);
+});
