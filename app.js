@@ -12,10 +12,7 @@ class Problem{
 // UI class : handles ui tasks
 class ui{
     static displayProblems(){
-        const ProblemList=[
-         
-            
-        ];
+        const ProblemList=Store.getProblem();
         const ProblemLists=ProblemList
 
         ProblemLists.forEach((curr)=>ui.addToLists(curr));
@@ -55,9 +52,32 @@ class ui{
      
 }
 // Store class : handles local Storage
-// class store{
-
-// }
+class store{
+     static getProblem(){
+        let problems;
+        if(localStorage.getItem('problems')===null){
+            problems=[];
+        }
+        else{
+            problems=JSON.parse(localStorage.getItem('problems'));
+        }
+        return problems;
+     }
+     static addProblem(problem){
+        const problems=Store.getProblems();
+        problems.push(problem);
+        localStorage.setItem('problems',JSON.stringify(problems));
+     }
+     static removeProblem(no){
+        const problems=Store.getProblem();
+        problems.forEach((book,no)=>{
+            if(problem.no == no){
+                problems.splice(no,1);
+            }
+        })
+        localStorage.setItem('problems',JSON.stringify(problems));
+     }
+}
 // Event 1 : Display Problems
 document.addEventListener('DOMContentLoaded',ui.displayProblems)
 // Event 2 : Add Problem to list of Problems
@@ -82,6 +102,8 @@ document.querySelector('#form').addEventListener('submit',(e)=>{
         const problemObj=new Problem(no,platform,problem_n,link,prio);
         console.log(problemObj);
         ui.addToLists(problemObj);
+        Store.addProblem(problemObj);
+        ui.clearFields();
     }
 })
 
