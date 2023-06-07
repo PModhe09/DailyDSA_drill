@@ -12,7 +12,7 @@ class Problem{
 // UI class : handles ui tasks
 class ui{
     static displayProblems(){
-        const ProblemList=store.getProblem();
+        const ProblemList=Store.getProblem();
         const ProblemLists=ProblemList
 
         ProblemLists.forEach((curr)=>ui.addToLists(curr));
@@ -59,7 +59,7 @@ class ui{
      
 }
 // Store class : handles local Storage
-class store{
+class Store{
      static getProblem(){
         let problems;
         if(localStorage.getItem('problems')===null){
@@ -71,15 +71,15 @@ class store{
         return problems;
      }
      static addProblem(problem){
-        const problems=Store.getProblems();
+        const problems=Store.getProblem();
         problems.push(problem);
         localStorage.setItem('problems',JSON.stringify(problems));
      }
      static removeProblem(no){
         const problems=Store.getProblem();
-        problems.forEach((book,no)=>{
-            if(problem.no == no){
-                problems.splice(no,1);
+        problems.forEach((problem,ind)=>{
+            if(problem.no === no){
+                problems.splice(ind,1);
             }
         })
         localStorage.setItem('problems',JSON.stringify(problems));
@@ -113,7 +113,7 @@ document.querySelector('#form').addEventListener('submit',(e)=>{
         ui.addToLists(problemObj);
         ui.showAlert('Problem Added','success')
         ui.clearFields();
-        store.addProblem(problemObj);
+        Store.addProblem(problemObj);
         
     }
 })
@@ -122,5 +122,6 @@ document.querySelector('#form').addEventListener('submit',(e)=>{
 document.querySelector('#problem-list').addEventListener('click',(e)=>{
       ui.delete(e.target);
      // ui.showAlert('Problem Solved','success')
+     Store.removeProblem(e.target.parentElement.previousElementSibling.textContent);
       ui.showAlert('Problem Solved','success')
 });
