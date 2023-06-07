@@ -12,7 +12,7 @@ class Problem{
 // UI class : handles ui tasks
 class ui{
     static displayProblems(){
-        const ProblemList=Store.getProblem();
+        const ProblemList=store.getProblem();
         const ProblemLists=ProblemList
 
         ProblemLists.forEach((curr)=>ui.addToLists(curr));
@@ -28,21 +28,28 @@ class ui{
         <td>${Ques.platform}</td>
         <td><a href='${Ques.link}'>${Ques.problem}</a></td>
         <td>${Ques.prio}</td>
-        <td><a href='#' class="btn btn-danger btn-sm delete"></a></td>
+        <td><a href='#' class="btn btn-danger btn-sm delete">X</a></td>
         `;
         
         list.appendChild(row);
     }
 
-    // static showAlert(message,className){
-    //     const div=document.createElement('div');
-    //     div.className=`alert alert-${className}`;
-    //     div.appendChild(document.createTextNode(message));
-    //     const container=document.querySelector('.container');
-    //     const form=document.querySelector('#form')
-    //     container.insertBefore(div,form);
-    //     setTimeout(()=>document.querySelector('.alert').remove(),3000)
-    // }
+    static clearFields(){
+        document.querySelector('#platform').value='';
+        document.querySelector('#link').value='';
+        document.querySelector('#prio').value='';
+        document.querySelector('#problem').value='';
+    }
+
+    static showAlert(message,className){
+        const div=document.createElement('div');
+        div.className=`alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        const container=document.querySelector('.container');
+        const form=document.querySelector('#form')
+        container.insertBefore(div,form);
+        setTimeout(()=>document.querySelector('.alert').remove(),3000)
+    }
 
     static delete(ele){
         if(ele.classList.contains('delete')){
@@ -99,16 +106,21 @@ document.querySelector('#form').addEventListener('submit',(e)=>{
         ui.showAlert('Some inputs are empty','danger')
     }
     else{
+        // Instantiate Problem
         const problemObj=new Problem(no,platform,problem_n,link,prio);
-        console.log(problemObj);
+        // console.log(problemObj);
+        // Add to List
         ui.addToLists(problemObj);
-        Store.addProblem(problemObj);
+        ui.showAlert('Problem Added','success')
         ui.clearFields();
+        store.addProblem(problemObj);
+        
     }
 })
 
 // Event 3 : Remove Problem from list of Problems
 document.querySelector('#problem-list').addEventListener('click',(e)=>{
       ui.delete(e.target);
+     // ui.showAlert('Problem Solved','success')
       ui.showAlert('Problem Solved','success')
 });
