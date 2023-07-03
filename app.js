@@ -256,7 +256,14 @@ function darkMode(){
    }
 }
 
-// function openBot(){
-//     console.log('bot')
-//     document.getElementById("bot").style.width = "100vw";
-// }
+
+ let doubtBox=false;
+function openBot(){
+    alert("Coming Soon")
+    // document.getElementById("bot").style.width = "100vw";
+    // document.createElement("")
+}
+function closeBot(){
+    alert("Coming Soon")
+//     document.getElementById("bot").style.width = "0";
+ }

@@ -47,16 +47,12 @@
         </div>
 
     </div>
-<!--Not working this div-->
-    <!-- <div id="bot" style="background-color: #ecf0f1;">
 
-    </div> -->
+
+    <span onclick="openNav()" style="font-size:30px;cursor:pointer;margin-left: 0vw;padding: 1.5vh 1vw 1.5vh 1vw;cursor: pointer;border-radius: 10%;background-color: white; ;"  ><img src="assets/side-bar-1.svg" height="50vh" width="50vw"></span>
    
-
-    <span onclick="openNav()" style="font-size:30px;cursor:pointer;color: white;margin-left: 3vw;"  >&#9776;</span>
-    <span onclick="openBot()"style="position: sticky;top: 0;margin-left: 80vw;"><img src="assets/bot.svg" height="40vh" width="50vw"></span>
     
-    <span onclick="darkMode()" style="position: sticky;top: 0;margin-left: 2vw;"><img src="assets/theme-icon.svg" height="40vh" width="40vw"></span>
+    <span onclick="darkMode()" id="toggleTheme" style="position: sticky;top: 0;margin-left: 80vw; padding: 1.5vh 1vw 1.5vh 1vw;cursor: pointer;border-radius: 10%;background-color: white;"><img src="assets/theme-icon.svg" height="40vh" width="40vw">Theme</span>
     <div class="container mt-4">
         <h1 class="display-4 text-center" style="color: #ecf0f1; margin-top: 2vh;">
             <i class="fa-solid fa-code"></i>
@@ -80,6 +76,17 @@
             <br>
             <input type="submit" value="Add Problem" class="btn btn-primary btn-block" style="background-color: #4cd137;">
         </form>
+
+
+        <span onclick="openBot()"style="position: sticky;top: 4;margin-left: 60vw; padding: 1.5vh 1vw 1.5vh 1vw;cursor: pointer;border-radius: 10%;background-color:white
+        "><img src="assets/bot.svg" height="40vh" width="50vw">Doubt Bot</span>
+        <div id="bot" style="background-color: #ecf0f1;width: 0vw;">
+            <div id="bot-header"></div>
+            <div id="bot-body"></div>
+            <div id="bot-footer"></div>
+        </div>
+
+
 
         <table class="table table-striped mt-5" style="color: #ecf0f1; font-size: 1.6vh;">
             <thead>
