@@ -27,7 +27,8 @@ class ui{
         row.innerHTML=`
         <td style="color: white;">${Ques.no}</td>
         <td style="color: white;">${Ques.platform}</td>
-        <td ><a href='${Ques.link}'>${Ques.problem}</a></td>
+        <td ><a href='${Ques.link}'  target="_blank" style="color:white;
+        ">${Ques.problem}</a></td>
         <td style="color: white;">${Ques.prio}</td>
         <td style="color: white;"><a href='#' class="btn btn-danger btn-sm delete">X</a></td>
         `;
