@@ -11,9 +11,8 @@ Key Features:-
 4. Local Storage
 5. Built without using any javascript framework
 6. Toggle Theme
-7. Responsive (Upcoming Feature)
-8. Add Delete and Remove Problem
-9. One click away from famous DSA sheets like (A2Z, Fraz etc...)
+7. Add and Remove Problem
+8. One click away from famous DSA sheets like (A2Z, Fraz etc...)
 
 To Do:-
 1. Doubt Bot
